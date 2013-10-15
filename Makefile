@@ -17,7 +17,7 @@ lint:
 
 .PHONY: test-sync
 test-sync:
-	SYNC=true ./node_modules/.bin/marionette-mocha $(MOCHA_OPTS)
+	SYNC=true ./node_modules/.bin/marionette-mocha $(MOCHA_OPTS) --verbose
 
 .PHONY: test-async
 test-async:

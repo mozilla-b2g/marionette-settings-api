@@ -12,7 +12,7 @@
     "mozilla-download": "~0.2.1",
     "mocha": "1.11.0",
     "sinon": "1.7.2",
-    "marionette-js-runner": "~0.2.0"
+    "marionette-js-runner": "~0.3.0"
   },
   "keywords": [
     "firefox",

@@ -1,5 +1,4 @@
-var BootWatcher = require(__dirname + '/../lib/bootwatcher'),
-    Host = require('marionette-host-environment'),
+var Host = require('marionette-host-environment'),
     Marionette = require('marionette-client');
 
 

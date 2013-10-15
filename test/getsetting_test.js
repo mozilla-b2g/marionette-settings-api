@@ -6,7 +6,6 @@ suite('getSetting', function() {
 
   marionette.plugin('mozSettingsApi', SettingsApi);
 
-
   test('getSetting can return a string', function(done) {
     getSetting(client.mozSettingsApi, 'language.current', function(err, value) {
       console.log(value);

@@ -1,11 +1,11 @@
-//var SettingsAPI = require('../lib/settingsapi');
-//
-//marionette('public interface', function() {
-//  var client = createClient();
-//  marionette.plugin('SettingsAPI', require('../index'));
-//
-//  suite('#list', function() {
-//    var apps;
+var SettingsAPI = require('../lib/settingsapi');
+
+marionette('public interface', function() {
+  var client = createClient();
+  marionette.plugin('SettingsAPI', require('../index'));
+
+  suite('#getSetting', function() {
+//    var value;
 //
 //    setup(function(done) {
 //      if (client.isSync) {
@@ -18,16 +18,12 @@
 //        });
 //      }
 //    });
-//
-//    test('should return many things', function() {
-//      assert.notStrictEqual(apps.length, 0);
-//    });
-//
-//    test('should return things and only things that are apps', function() {
-//      apps.forEach(function(app) {
-//        assert.ok(app instanceof App, app.origin);
-//      });
-//    });
-//  });
-//
-//});
+
+    test('should get single setting', function() {
+      value = client.SettingsAPI.getSetting('language.current');
+      assert(value.length > 0);
+    });
+
+  });
+
+});
