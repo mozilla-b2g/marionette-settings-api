@@ -2,7 +2,10 @@ suite('getSetting', function() {
   // requires
   var SettingsApi = require('../lib/settingsapi'),
       getSetting = require('../lib/getsetting').getSetting
-      client = createClient();
+      client = createClient(),
+      helper = require('../lib/helper');
+
+  helper.skipInitialError(client);
 
   marionette.plugin('mozSettingsApi', SettingsApi);
 
