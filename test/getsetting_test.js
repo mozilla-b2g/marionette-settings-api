@@ -1,20 +1,14 @@
 suite('getSetting', function() {
   // requires
-  var SettingsApi = require('../lib/settingsapi'),
-      getSetting = require('../lib/getsetting').getSetting
-      client = createClient(),
-      helper = require('../lib/helper');
+  var getSetting = require('../lib/getsetting'),
+      client = marionette.client(),
+      skipError = require('./support/skip_error');
 
-  helper.skipInitialError(client);
+  skipError(client);
 
-  marionette.plugin('mozSettingsApi', SettingsApi);
-
-  test('getSetting can return a string', function(done) {
-    getSetting(client.mozSettingsApi, 'language.current', function(err, value) {
-      console.log(value);
-      assert.ok(value.length > 0);
-      done();
-    });
+  test('getSetting can return a string', function() {
+    var value = getSetting(client, 'language.current');
+    assert.equal(value, 'en-US');
   });
 
 });

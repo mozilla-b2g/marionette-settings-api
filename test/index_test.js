@@ -1,29 +1,15 @@
-var SettingsAPI = require('../lib/settingsapi');
-
 marionette('public interface', function() {
-  var client = createClient();
+  var skipError = require('./support/skip_error');
+  var client = marionette.client();
   marionette.plugin('SettingsAPI', require('../index'));
 
-  suite('#getSetting', function() {
-//    var value;
-//
-//    setup(function(done) {
-//      if (client.isSync) {
-//        apps = client.apps.list();
-//        done();
-//      } else {
-//        client.apps.list(function(err, _apps) {
-//          apps = _apps;
-//          done();
-//        });
-//      }
-//    });
+  skipError(client);
 
+  suite('#getSetting', function() {
     test('should get single setting', function() {
-      value = client.SettingsAPI.getSetting('language.current');
+      value = client.SettingsAPI.get('language.current');
       assert(value.length > 0);
     });
-
   });
 
 });
