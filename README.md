@@ -1,7 +1,7 @@
 
 # Marionette Settings API
 
-A node library that provides access to Settings through Marionette.
+A node library that provides access to MozSettings through Marionette.
 
 [![Build
 Status](https://travis-ci.org/mozilla-b2g/marionette-settings-api.png?branch=master)](https://travis-ci.org/mozilla-b2g/marionette-settings-api)
@@ -14,39 +14,19 @@ Status](https://travis-ci.org/mozilla-b2g/marionette-settings-api.png?branch=mas
 ## Getting Started
 
     npm install
-    examples/launch.js
 
 ## Usage
 
 ```js
 // create the plugin. Must come _before_ startSession
-client.plugin('apps', require('marionette-apps'));
+client.plugin('SettingsAPI', require('marionette-settings-api'));
 
 client.startSession(function() {
-  // launch the app
-  client.apps.launch('app://myorigin.com'); 
+  // get a setting
+  currentLanguage = client.SettingsAPI.get('language.current');
 
-  // entrypoint variant
-  client.apps.launch('app://myorigin.com', 'xfoo'); 
-
-  // close a running application
-  client.apps.close('app://myorigin.com');
-
-  // entrypoint variant
-  client.apps.close('app://myorigin.com', 'xfoo');
-
-  // switch to the iframe of a given app origin  should run after launch
-  client.apps.switchToApp('app://myorigin.com');
-  // entrypoint variant
-  client.apps.switchToApp('app://myorigin.com', 'xfoo');
-
-  // find all apps
-  var apps = client.apps.list();
-
-  // find a single app
-  var app = client.app.getApp('app://...');
-  // entrypoint variant
-  var appPoint = client.app.getApp('app://', 'entrypoint');
+  // set a setting
+  client.SettingsAPI.set('language.current', 'en-GB');
 
 });
 
@@ -57,7 +37,7 @@ client.startSession(function() {
 
 Copyright (c) 2013 Mozilla Foundation
 
-Contributors: Bob Silverberg <bsilverberg@mozilla.com>
+Contributors: Bob Silverberg <bsilverberg@mozilla.com>, James Lal <jlal@mozilla.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a
 copy of this software and associated documentation files (the

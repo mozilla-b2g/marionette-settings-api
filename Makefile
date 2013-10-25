@@ -24,4 +24,4 @@ lint:
 
 .PHONY: test
 test: b2g
-	./node_modules/.bin/marionette-mocha $(MOCHA_OPTS) --verbose
+	./node_modules/.bin/marionette-mocha $(MOCHA_OPTS) --timeout 10s --verbose

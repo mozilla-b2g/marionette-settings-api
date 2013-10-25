@@ -8,6 +8,7 @@ suite('getSetting', function() {
 
   test('getSetting can return a string', function() {
     var value = getSetting(client, 'language.current');
+    console.log(value);
     assert.equal(value, 'en-US');
   });
 

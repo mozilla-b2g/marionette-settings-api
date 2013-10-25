@@ -12,4 +12,13 @@ marionette('public interface', function() {
     });
   });
 
+  suite('#setSetting', function() {
+    test('should set single setting', function() {
+      var startValue = client.SettingsAPI.get('accessibility.screenreader');
+      client.SettingsAPI.set('accessibility.screenreader', !startValue);
+      var newValue = client.SettingsAPI.get('accessibility.screenreader');
+      assert.notEqual(startValue, newValue);
+    });
+  });
+
 });
